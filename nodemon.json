@@ -1,0 +1,11 @@
+{
+    "watch": [
+        "src",
+        "server.js"
+    ],
+    "ext": "js,json",
+    "ignore": [
+        "wa_sessions/**",
+        "node_modules/**"
+    ]
+}

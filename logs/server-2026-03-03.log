@@ -1,0 +1,48 @@
+[2026-03-03 18:09:17] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 18:09:17] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 18:09:17] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 18:09:17] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 18:09:17] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 18:09:17] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 18:09:17] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 18:09:19] INFO: 🌐 Ngrok tunnel established at: https://extemporal-homeoplastic-yuk.ngrok-free.dev
+[2026-03-03 18:09:19] INFO: 📋 Public URL: https://extemporal-homeoplastic-yuk.ngrok-free.dev
+
+[2026-03-03 18:15:40] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 18:15:40] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 18:15:40] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 18:15:40] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 18:15:40] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 18:15:40] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 18:15:40] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 18:15:53] ERROR: ❌ Ngrok connection failed: failed to connect session: failed to deserialize rpc response
+[2026-03-03 18:15:53] INFO: Server is still running locally.
+
+[2026-03-03 18:19:46] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 18:19:46] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 18:19:46] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 18:19:46] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 18:19:46] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 18:19:46] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 18:19:46] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 18:19:48] INFO: 🌐 Ngrok tunnel established at: https://extemporal-homeoplastic-yuk.ngrok-free.dev
+[2026-03-03 18:19:48] INFO: 📋 Public URL: https://extemporal-homeoplastic-yuk.ngrok-free.dev
+
+[2026-03-03 18:20:22] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 18:20:22] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 18:20:22] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 18:20:22] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 18:20:22] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 18:20:22] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 18:20:22] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 18:20:27] INFO: 🌐 Ngrok tunnel established at: https://extemporal-homeoplastic-yuk.ngrok-free.dev
+[2026-03-03 18:20:27] INFO: 📋 Public URL: https://extemporal-homeoplastic-yuk.ngrok-free.dev
+

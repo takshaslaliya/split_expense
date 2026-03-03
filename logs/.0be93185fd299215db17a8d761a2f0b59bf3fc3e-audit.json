@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/taksh/Documents/split_expense/logs/.0be93185fd299215db17a8d761a2f0b59bf3fc3e-audit.json",
+    "files": [
+        {
+            "date": 1772541556732,
+            "name": "/home/taksh/Documents/split_expense/logs/server-2026-03-03.log",
+            "hash": "2e42527c314a0c63198320b66aa724a1ba3963aaadd4f1a6679cdd5cb70bf8dc"
+        }
+    ],
+    "hashType": "sha256"
+}
