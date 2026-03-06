@@ -1,5 +1,6 @@
 const GroupModel = require('../models/groupModel');
 const UserModel = require('../models/userModel');
+const { normalizePhone } = require('../utils/phoneUtils');
 
 const GroupService = {
     /**
@@ -56,24 +57,27 @@ const GroupService = {
             is_registered: true, expense_amount: creatorExpense,
         });
 
-        // Add members with their expense shares
+        // Add members with their expense shares concurrently
         const addedMembers = [];
         if (members && Array.isArray(members)) {
-            for (const m of members) {
-                if (!m.phone_number || !m.name) continue;
+            const memberPromises = members.map(async (m) => {
+                if (!m.phone_number || !m.name) return null;
 
                 // Check if registered
-                const registeredUser = await UserModel.findByEmailOrMobile(m.phone_number);
+                const normalizedM = normalizePhone(m.phone_number);
+                const registeredUser = await UserModel.findByEmailOrMobile(normalizedM);
                 const is_registered = !!registeredUser;
                 const linked_user_id = registeredUser ? (registeredUser.$id || registeredUser.id) : '';
 
-                const member = await GroupModel.addMember({
+                return GroupModel.addMember({
                     group_id: subGroup.id, user_id: linked_user_id, added_by: userId,
-                    name: m.name, phone_number: m.phone_number,
+                    name: m.name, phone_number: normalizedM,
                     is_registered, expense_amount: m.expense_amount || 0,
                 });
-                addedMembers.push(member);
-            }
+            });
+
+            const results = await Promise.all(memberPromises);
+            addedMembers.push(...results.filter(m => m !== null));
         }
 
         return { ...subGroup, members: addedMembers };
@@ -83,8 +87,13 @@ const GroupService = {
      * Get all top-level groups
      */
     getMyGroups: async (userId) => {
-        const groupIds = await GroupModel.getGroupsByUser(userId);
-        const createdGroups = await GroupModel.findByCreator(userId);
+        const user = await UserModel.findById(userId);
+        const normalizedPhone = user ? normalizePhone(user.mobile_number) : '';
+
+        const [groupIds, createdGroups] = await Promise.all([
+            GroupModel.getGroupsByUser(userId, normalizedPhone),
+            GroupModel.findByCreator(userId)
+        ]);
         const allGroupIds = [...new Set([...groupIds, ...createdGroups.map(g => g.id)])];
 
         // Fetch all groups concurrently
@@ -123,7 +132,10 @@ const GroupService = {
      */
     getSharedGroups: async (userId) => {
         // 1. Find all group IDs where the user is a member
-        const groupIds = await GroupModel.getGroupsByUser(userId);
+        const user = await UserModel.findById(userId);
+        const normalizedPhone = user ? normalizePhone(user.mobile_number) : '';
+
+        const groupIds = await GroupModel.getGroupsByUser(userId, normalizedPhone);
         if (!groupIds || groupIds.length === 0) return [];
 
         // 2. Fetch those specific groups
@@ -182,13 +194,15 @@ const GroupService = {
             }
         }
 
-        const members = await GroupModel.getMembers(groupId);
-        const subGroups = await GroupModel.getSubGroups(groupId);
-        const subGroupsWithDetails = [];
-        for (const sg of subGroups) {
+        const [members, subGroups] = await Promise.all([
+            GroupModel.getMembers(groupId),
+            GroupModel.getSubGroups(groupId)
+        ]);
+
+        const subGroupsWithDetails = await Promise.all(subGroups.map(async (sg) => {
             const sgMembers = await GroupModel.getMembers(sg.id);
-            subGroupsWithDetails.push({ ...sg, members: sgMembers });
-        }
+            return { ...sg, members: sgMembers };
+        }));
 
         return { ...group, members, sub_groups: subGroupsWithDetails };
     },
@@ -230,14 +244,15 @@ const GroupService = {
         }
 
         const subGroups = await GroupModel.getSubGroups(groupId);
-        for (const sg of subGroups) {
+
+        await Promise.all(subGroups.map(async (sg) => {
             const sgMembers = await GroupModel.getMembers(sg.id);
-            for (const m of sgMembers) await GroupModel.removeMember(m.id);
+            await Promise.all(sgMembers.map(m => GroupModel.removeMember(m.id)));
             await GroupModel.deleteById(sg.id);
-        }
+        }));
 
         const members = await GroupModel.getMembers(groupId);
-        for (const m of members) await GroupModel.removeMember(m.id);
+        await Promise.all(members.map(m => GroupModel.removeMember(m.id)));
 
         await GroupModel.deleteById(groupId);
         return group;
@@ -259,19 +274,20 @@ const GroupService = {
             err.statusCode = 403; throw err;
         }
 
-        const existingByPhone = await GroupModel.findMemberByPhone(groupId, phone_number);
+        const normalizedPhone = normalizePhone(phone_number);
+        const existingByPhone = await GroupModel.findMemberByPhone(groupId, normalizedPhone);
         if (existingByPhone) {
             const err = new Error('A member with this phone number is already in this group.');
             err.statusCode = 409; throw err;
         }
 
-        const registeredUser = await UserModel.findByEmailOrMobile(phone_number);
+        const registeredUser = await UserModel.findByEmailOrMobile(normalizedPhone);
         const is_registered = !!registeredUser;
         const linked_user_id = registeredUser ? (registeredUser.$id || registeredUser.id) : '';
 
         return await GroupModel.addMember({
             group_id: groupId, user_id: linked_user_id, added_by: userId,
-            name, phone_number, is_registered, expense_amount: expense_amount || 0,
+            name, phone_number: normalizedPhone, is_registered, expense_amount: expense_amount || 0,
         });
     },
 

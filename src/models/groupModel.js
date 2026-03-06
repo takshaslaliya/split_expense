@@ -1,4 +1,5 @@
 const { databases, DATABASE_ID, GROUPS_COLLECTION_ID, GROUP_MEMBERS_COLLECTION_ID, Query, ID } = require('../config/appwrite');
+const { getSearchVariations } = require('../utils/phoneUtils');
 
 const GroupModel = {
     // ─── GROUPS ────────────────────────────────────────────
@@ -154,17 +155,29 @@ const GroupModel = {
         await databases.deleteDocument(DATABASE_ID, GROUP_MEMBERS_COLLECTION_ID, memberDocId);
     },
 
-    getGroupsByUser: async (userId) => {
+    getGroupsByUser: async (userId, phoneNumber = '') => {
+        const queries = [Query.equal('user_id', userId)];
+        if (phoneNumber) {
+            const variations = getSearchVariations(phoneNumber);
+            variations.forEach(v => queries.push(Query.equal('phone_number', v)));
+        }
+
         const result = await databases.listDocuments(DATABASE_ID, GROUP_MEMBERS_COLLECTION_ID, [
-            Query.equal('user_id', userId),
+            queries.length > 1 ? Query.or(queries) : queries[0],
             Query.limit(100),
         ]);
-        return result.documents.map(doc => doc.group_id);
+        return [...new Set(result.documents.map(doc => doc.group_id))];
     },
 
-    getMemberDocsByUser: async (userId) => {
+    getMemberDocsByUser: async (userId, phoneNumber = '') => {
+        const queries = [Query.equal('user_id', userId)];
+        if (phoneNumber) {
+            const variations = getSearchVariations(phoneNumber);
+            variations.forEach(v => queries.push(Query.equal('phone_number', v)));
+        }
+
         const result = await databases.listDocuments(DATABASE_ID, GROUP_MEMBERS_COLLECTION_ID, [
-            Query.equal('user_id', userId),
+            queries.length > 1 ? Query.or(queries) : queries[0],
             Query.limit(100),
         ]);
         return result.documents.map(doc => ({

@@ -3,6 +3,7 @@ const QRCode = require('qrcode');
 const pino = require('pino');
 const path = require('path');
 const fs = require('fs');
+const { normalizePhone } = require('../utils/phoneUtils');
 
 const baileysLogger = pino({ level: 'silent' });
 
@@ -16,14 +17,6 @@ if (!fs.existsSync(AUTH_DIR)) fs.mkdirSync(AUTH_DIR, { recursive: true });
 // Session metadata file (persists userId→phone mapping for restore)
 const META_FILE = path.join(AUTH_DIR, '_sessions.json');
 
-/**
- * Normalize phone — always returns 91XXXXXXXXXX
- */
-const normalizePhone = (phone) => {
-    let num = String(phone).replace(/[^0-9]/g, '');
-    if (!num.startsWith('91')) num = '91' + num;
-    return num;
-};
 
 /**
  * Save session metadata to disk for restore on restart

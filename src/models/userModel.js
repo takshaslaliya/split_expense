@@ -1,4 +1,5 @@
 const { databases, DATABASE_ID, USERS_COLLECTION_ID, Query, ID } = require('../config/appwrite');
+const { getSearchVariations } = require('../utils/phoneUtils');
 
 /**
  * User Model — all database operations using Appwrite
@@ -42,18 +43,22 @@ const UserModel = {
      * Find user by email or mobile number
      */
     findByEmailOrMobile: async (identifier) => {
-        // Try email first
-        let result = await databases.listDocuments(DATABASE_ID, USERS_COLLECTION_ID, [
-            Query.equal('email', identifier.toLowerCase()),
-            Query.limit(1),
-        ]);
-        if (result.documents.length > 0) return result.documents[0];
+        const queries = [Query.equal('email', identifier.toLowerCase())];
 
-        // Try mobile
-        result = await databases.listDocuments(DATABASE_ID, USERS_COLLECTION_ID, [
-            Query.equal('mobile_number', identifier),
+        // If it doesn't look like an email, treat as potential phone and add variations
+        if (!identifier.includes('@')) {
+            const variations = getSearchVariations(identifier);
+            variations.forEach(v => queries.push(Query.equal('mobile_number', v)));
+        } else {
+            // Also check mobile with exact identifier just in case someone has a weird mobile
+            queries.push(Query.equal('mobile_number', identifier));
+        }
+
+        const result = await databases.listDocuments(DATABASE_ID, USERS_COLLECTION_ID, [
+            Query.or(queries),
             Query.limit(1),
         ]);
+
         return result.documents.length > 0 ? result.documents[0] : null;
     },
 
@@ -61,26 +66,29 @@ const UserModel = {
      * Check if a user exists with the given email, username, or mobile
      */
     findExisting: async (email, username, mobile_number) => {
-        // Check email
-        let result = await databases.listDocuments(DATABASE_ID, USERS_COLLECTION_ID, [
-            Query.equal('email', email.toLowerCase()),
-            Query.limit(1),
-        ]);
-        if (result.documents.length > 0) return { ...result.documents[0], id: result.documents[0].$id };
+        const phoneVariations = getSearchVariations(mobile_number);
+        const mobileQueries = phoneVariations.map(v => Query.equal('mobile_number', v));
 
-        // Check username
-        result = await databases.listDocuments(DATABASE_ID, USERS_COLLECTION_ID, [
-            Query.equal('username', username),
-            Query.limit(1),
-        ]);
-        if (result.documents.length > 0) return { ...result.documents[0], id: result.documents[0].$id };
+        const queries = [
+            databases.listDocuments(DATABASE_ID, USERS_COLLECTION_ID, [
+                Query.equal('email', email.toLowerCase()),
+                Query.limit(1),
+            ]),
+            databases.listDocuments(DATABASE_ID, USERS_COLLECTION_ID, [
+                Query.equal('username', username),
+                Query.limit(1),
+            ]),
+            databases.listDocuments(DATABASE_ID, USERS_COLLECTION_ID, [
+                Query.or(mobileQueries),
+                Query.limit(1),
+            ]),
+        ];
 
-        // Check mobile
-        result = await databases.listDocuments(DATABASE_ID, USERS_COLLECTION_ID, [
-            Query.equal('mobile_number', mobile_number),
-            Query.limit(1),
-        ]);
-        if (result.documents.length > 0) return { ...result.documents[0], id: result.documents[0].$id };
+        const [emailRes, usernameRes, mobileRes] = await Promise.all(queries);
+
+        if (emailRes.documents.length > 0) return { ...emailRes.documents[0], id: emailRes.documents[0].$id };
+        if (usernameRes.documents.length > 0) return { ...usernameRes.documents[0], id: usernameRes.documents[0].$id };
+        if (mobileRes.documents.length > 0) return { ...mobileRes.documents[0], id: mobileRes.documents[0].$id };
 
         return null;
     },

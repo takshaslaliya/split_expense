@@ -46,3 +46,213 @@
 [2026-03-03 18:20:27] INFO: 🌐 Ngrok tunnel established at: https://extemporal-homeoplastic-yuk.ngrok-free.dev
 [2026-03-03 18:20:27] INFO: 📋 Public URL: https://extemporal-homeoplastic-yuk.ngrok-free.dev
 
+[2026-03-03 19:19:03] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 19:19:03] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 19:19:03] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 19:19:03] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 19:19:03] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 19:19:03] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 19:19:03] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 19:19:04] INFO: 🌐 Ngrok tunnel is already active on this port.
+[2026-03-03 19:19:36] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 19:19:36] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 19:19:36] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 19:19:36] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 19:19:36] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 19:19:36] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 19:19:36] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 19:19:37] INFO: 🌐 Ngrok tunnel is already active on this port.
+[2026-03-03 19:20:02] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 19:20:02] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 19:20:02] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 19:20:02] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 19:20:02] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 19:20:02] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 19:20:02] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 19:20:09] INFO: 🌐 Ngrok tunnel is already active on this port.
+[2026-03-03 19:20:33] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 19:20:33] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 19:20:33] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 19:20:33] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 19:20:33] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 19:20:33] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 19:20:33] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 19:20:44] INFO: 🌐 Ngrok tunnel is already active on this port.
+[2026-03-03 19:21:11] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 19:21:11] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 19:21:11] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 19:21:11] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 19:21:11] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 19:21:11] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 19:21:11] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 19:21:18] INFO: 🌐 Ngrok tunnel is already active on this port.
+[2026-03-03 19:21:28] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 19:21:28] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 19:21:28] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 19:21:28] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 19:21:28] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 19:21:28] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 19:21:28] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 19:21:32] INFO: 🌐 Ngrok tunnel is already active on this port.
+[2026-03-03 19:26:42] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 19:26:42] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 19:26:42] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 19:26:42] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 19:26:42] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 19:26:42] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 19:26:42] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 19:26:43] INFO: 🌐 Ngrok tunnel is already active on this port.
+[2026-03-03 19:26:56] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 19:26:56] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 19:26:56] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 19:26:56] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 19:26:56] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 19:26:56] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 19:26:56] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 19:26:56] INFO: 🌐 Ngrok tunnel is already active on this port.
+[2026-03-03 19:27:09] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 19:27:09] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 19:27:09] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 19:27:09] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 19:27:09] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 19:27:09] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 19:27:09] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 19:27:09] INFO: 🌐 Ngrok tunnel is already active on this port.
+[2026-03-03 19:27:19] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 19:27:19] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 19:27:19] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 19:27:19] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 19:27:19] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 19:27:19] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 19:27:19] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 19:27:20] INFO: 🌐 Ngrok tunnel is already active on this port.
+[2026-03-03 19:27:31] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 19:27:31] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 19:27:31] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 19:27:31] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 19:27:31] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 19:27:31] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 19:27:31] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 19:27:32] INFO: 🌐 Ngrok tunnel is already active on this port.
+[2026-03-03 19:27:36] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 19:27:36] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 19:27:36] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 19:27:36] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 19:27:36] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 19:27:36] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 19:27:36] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 19:27:37] INFO: 🌐 Ngrok tunnel is already active on this port.
+[2026-03-03 19:32:13] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 19:32:13] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 19:32:13] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 19:32:13] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 19:32:13] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 19:32:13] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 19:32:13] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 19:32:17] INFO: 🌐 Ngrok tunnel is already active on this port.
+[2026-03-03 19:32:25] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 19:32:25] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 19:32:25] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 19:32:25] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 19:32:25] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 19:32:25] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 19:32:25] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 19:32:26] INFO: 🌐 Ngrok tunnel is already active on this port.
+[2026-03-03 19:32:42] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 19:32:42] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 19:32:42] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 19:32:42] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 19:32:42] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 19:32:42] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 19:32:42] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 19:32:47] INFO: 🌐 Ngrok tunnel is already active on this port.
+[2026-03-03 19:32:58] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 19:32:58] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 19:32:58] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 19:32:58] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 19:32:58] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 19:32:58] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 19:32:58] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 19:33:05] INFO: 🌐 Ngrok tunnel is already active on this port.
+[2026-03-03 20:49:27] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 20:49:27] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 20:49:27] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 20:49:27] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 20:49:27] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 20:49:27] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 20:49:27] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 20:49:31] INFO: 🌐 Ngrok tunnel is already active on this port.
+[2026-03-03 20:50:26] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 20:50:26] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 20:50:26] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 20:50:26] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 20:50:26] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 20:50:26] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 20:50:26] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 20:50:26] INFO: 🌐 Ngrok tunnel is already active on this port.
+[2026-03-03 20:53:12] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 20:53:12] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 20:53:12] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 20:53:12] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 20:53:12] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 20:53:12] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 20:53:12] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 20:53:13] INFO: 🌐 Ngrok tunnel is already active on this port.
+[2026-03-03 20:54:19] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 20:54:19] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 20:54:19] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 20:54:19] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 20:54:19] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 20:54:19] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 20:54:19] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 20:54:20] INFO: 🌐 Ngrok tunnel is already active on this port.
+[2026-03-03 20:56:16] INFO: 
+🚀 Split Expense API running on http://localhost:3000
+[2026-03-03 20:56:16] INFO: 📋 Auth endpoints:   http://localhost:3000/api/auth
+[2026-03-03 20:56:16] INFO: 📋 User endpoints:   http://localhost:3000/api/user
+[2026-03-03 20:56:16] INFO: 📋 Admin endpoints:  http://localhost:3000/api/admin
+[2026-03-03 20:56:16] INFO: 📋 Group endpoints:  http://localhost:3000/api/groups
+[2026-03-03 20:56:16] INFO: 📋 WhatsApp endpoints: http://localhost:3000/api/whatsapp
+
+[2026-03-03 20:56:16] INFO: 📱 No WhatsApp sessions to restore.
+[2026-03-03 20:56:16] INFO: 🌐 Ngrok tunnel is already active on this port.

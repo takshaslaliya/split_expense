@@ -4,6 +4,7 @@ const UserModel = require('../models/userModel');
 const { sendOtpEmail } = require('../utils/emailService');
 const { generateOtp, storeOtp, verifyOtp } = require('../utils/otpStore');
 const { ROLES, JWT_EXPIRY, BCRYPT_SALT_ROUNDS } = require('../config/constants');
+const { normalizePhone } = require('../utils/phoneUtils');
 require('dotenv').config();
 
 /**
@@ -14,8 +15,11 @@ const AuthService = {
      * Register a new user
      */
     signup: async ({ mobile_number, email, username, full_name, password }) => {
+        // Normalize mobile number
+        const normalizedMobile = mobile_number;
+
         // Check for existing user
-        const existing = await UserModel.findExisting(email, username, mobile_number);
+        const existing = await UserModel.findExisting(email, username, normalizedMobile);
         if (existing) {
             let conflict = 'User';
             if (existing.email === email) conflict = 'Email';
@@ -31,7 +35,7 @@ const AuthService = {
         const hashedPassword = await bcrypt.hash(password, salt);
 
         const newUser = await UserModel.create({
-            mobile_number,
+            mobile_number: normalizedMobile,
             email: email.toLowerCase(),
             username,
             full_name,

@@ -2,6 +2,7 @@ const UserModel = require('../models/userModel');
 const GroupModel = require('../models/groupModel');
 const bcrypt = require('bcryptjs');
 const { ROLES, BCRYPT_SALT_ROUNDS } = require('../config/constants');
+const { normalizePhone } = require('../utils/phoneUtils');
 
 /**
  * User Service — business logic for user profile management
@@ -80,14 +81,27 @@ const UserService = {
             throw err;
         }
 
+        // Parallelize fetching all components of the dashboard
+        const normalizedPhone = normalizePhone(user.mobile_number);
+        const [myMemberDocs, myCreatedGroups, waStatus] = await Promise.all([
+            GroupModel.getMemberDocsByUser(userId, normalizedPhone),
+            GroupModel.findByCreator(userId),
+            require('./whatsappService').getStatus(userId)
+        ]);
+
         // 1. Calculate money I owe to others
-        // I am a member in a sub-group (parent_id != null) created by someone else, my is_paid == false
-        const myMemberDocs = await GroupModel.getMemberDocsByUser(userId);
+        const subgroupsIOweTo = myMemberDocs.filter(m => !m.is_paid && m.expense_amount > 0);
         let money_to_send = 0;
 
-        for (const memberDoc of myMemberDocs) {
-            if (!memberDoc.is_paid && memberDoc.expense_amount > 0) {
-                const group = await GroupModel.findById(memberDoc.group_id);
+        if (subgroupsIOweTo.length > 0) {
+            // Fetch all unique groups concurrently
+            const uniqueGroupIds = [...new Set(subgroupsIOweTo.map(m => m.group_id))];
+            const groupsMap = {};
+            const groupDocs = await Promise.all(uniqueGroupIds.map(id => GroupModel.findById(id)));
+            groupDocs.forEach(g => { if (g) groupsMap[g.id] = g; });
+
+            for (const memberDoc of subgroupsIOweTo) {
+                const group = groupsMap[memberDoc.group_id];
                 if (group && group.parent_id && group.created_by !== userId) {
                     money_to_send += memberDoc.expense_amount;
                 }
@@ -95,33 +109,33 @@ const UserService = {
         }
 
         // 2. Calculate money owed to me
-        // I created a sub-group, and other members in it have is_paid == false
         let money_to_receive = 0;
-        const myCreatedGroups = await GroupModel.findByCreator(userId);
         const myCreatedSubGroups = myCreatedGroups.filter(g => g.parent_id);
 
-        for (const subGroup of myCreatedSubGroups) {
-            const members = await GroupModel.getMembers(subGroup.id);
-            for (const member of members) {
-                // If member is not me, and hasn't paid, they owe me
-                if (member.user_id !== userId && !member.is_paid && member.expense_amount > 0) {
-                    money_to_receive += member.expense_amount;
+        if (myCreatedSubGroups.length > 0) {
+            // Fetch members of all sub-groups concurrently
+            const membersResults = await Promise.all(myCreatedSubGroups.map(sg => GroupModel.getMembers(sg.id)));
+
+            membersResults.forEach(members => {
+                for (const member of members) {
+                    // If member is not me, and hasn't paid, they owe me
+                    if (member.user_id !== userId && !member.is_paid && member.expense_amount > 0) {
+                        money_to_receive += member.expense_amount;
+                    }
                 }
-            }
+            });
         }
 
         // 3. Get last 2 main groups
         const GroupService = require('./groupService');
-        const myTopGroups = await GroupService.getMyGroups(userId);
-        const sharedGroups = await GroupService.getSharedGroups(userId);
+        const [myTopGroups, sharedGroups] = await Promise.all([
+            GroupService.getMyGroups(userId),
+            GroupService.getSharedGroups(userId)
+        ]);
 
         const allMainGroups = [...myTopGroups, ...sharedGroups];
         allMainGroups.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-
         const recent_groups = allMainGroups.slice(0, 2);
-
-        // 4. Basic user details
-        const waStatus = require('./whatsappService').getStatus(userId);
 
         return {
             user: {
